@@ -28,4 +28,9 @@ public class PersonServiceImpl implements PersonService {
 		return listOfEmplyees;
 	}
 
+	public Person fetchPersonDetails(String personId) {
+		Person person = personRepo.findById(Long.parseLong(personId));
+		return person;
+	}
+
 }

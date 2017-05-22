@@ -44,4 +44,12 @@ public class PersonController {
 		return new ResponseEntity<PersonResponse>(response, HttpStatus.OK);
 	}
 
+	@RequestMapping("/{personId}/person")
+	public ResponseEntity<PersonResponse> fetchEmployeeDetails(@PathVariable String personId ) {
+		PersonResponse<Person> response = new PersonResponse<>();
+		Person personDetails = personService.fetchPersonDetails(personId);
+		response.setEntity(personDetails);
+		return new ResponseEntity<PersonResponse>(response, HttpStatus.OK);
+	}
+
 }
